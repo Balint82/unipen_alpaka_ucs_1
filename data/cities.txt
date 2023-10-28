@@ -1,0 +1,15 @@
+Nagykanizsa Miklósfa 8.7
+Nagykanizsa Pogányszentpéter 14.6
+Nagykanizsa Zalakomár 17.9
+Zalakomár Balatonszentgyörgy 24.6
+Nagykanizsa Letenye 22.3
+Nagykanizsa Zalaegerszeg 51.7
+Zalaegerszeg Vasvár 25.2
+Nagykanizsa Inke 27.8
+Inke Böhönye 17.6
+Böhönye Nagybajom 9.6
+Nagybajom Kiskorpád 10.0
+Kiskorpád Kaposfő 4.9
+Kaposfő Kaposmérő 3.9
+Kaposmérő Kaposújlak 3.1
+Kaposújlak Kaposvár 7.1
