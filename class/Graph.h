@@ -1,52 +1,100 @@
-#ifndef SOURCE_GRAPH_H_
-#define SOURCE_GRAPH_H_
-
 #include <iostream>
-#include <string>
-#include <map>
 #include <list>
+#include <set>
+#include <map>
+
+#pragma once
 
 using namespace std;
 
-struct Edge {
-    string targetCity;
-    double distance;
 
-    /*bool operator<(const Edge& other) const {
-            return targetCity < other.targetCity;
-        }*/
+struct Node{
+    string name;
+    double weight;
+
+    bool operator==(const Node& other) const {
+        return name == other.name;
+    }
+
+    bool operator!=(const Node& other) const {
+        return name != other.name;
+    }
+
+    bool operator<(const Node& other) const {
+        return name < other.name;
+    }
 };
 
-class Graph {
-protected:
-    map<string, list<Edge>> mapping;
+
+class Graph{
+    map<Node, set<Node>> allNodeMap; //fájlból az összes kiindulóvároshoz, rendel célváros halmazt.
+    set<Node> nodeCounter;
 public:
-    Graph(){}
-    ~Graph(){}
+    Graph(){};
+    ~Graph(){};
 
 
-    void addEdge(string sourceCity, string targetCity, double distance){
-        Edge edge;
-        edge.targetCity = targetCity;
-        edge.distance = distance;
-        mapping[sourceCity].push_back(edge);
+    set<Node> getNodeCounter(){
+        return nodeCounter;
     }
 
-     map<string, list<Edge>> getMapping(){
-       return mapping;
+    void printNodeCounter(){
+        for(const Node& item : nodeCounter){
+            cout<<item.name<<" - ";
+        }
+        cout<<endl<<endl;
+
+        for(const Node& item : nodeCounter){
+            cout<<item.name<<endl;
+        }
+        cout<<endl<<endl;   
     }
 
-    friend ostream& operator<<(ostream& s, const Graph& graph) {
-        for (const auto& pair : graph.mapping) {
-            s << pair.first << "-";
-            for (const Edge& edge : pair.second) {
-                s << edge.targetCity << " "<< edge.distance <<"km"<<endl;
+    void addNode(string sourceCity, string targetCity, double distance){
+        Node sourceCityNode;
+        Node newCityNode;
+        sourceCityNode.name = sourceCity;
+        sourceCityNode.weight = 0.0;
+        newCityNode.name = targetCity;
+        newCityNode.weight = distance;
+
+        allNodeMap[sourceCityNode].insert(newCityNode);
+    }
+
+    int addNodeForNodeCounterAndCalc(){
+        int result = 0;
+
+        for(const auto& pair : allNodeMap){
+            nodeCounter.insert(pair.first);
+            for(const Node& value : pair.second){
+                nodeCounter.insert(value);
             }
         }
+
+        result = nodeCounter.size();
+
+        
+        return result;
+    }
+
+    map<Node, set<Node>> getAllNodeMap(){
+        return allNodeMap;
+    }
+
+    
+    friend ostream& operator<<(ostream& s, const Graph& graph){
+        for(const auto& pair : graph.allNodeMap){
+            s<<pair.first.name<<" -> ";
+            for(const Node& node : pair.second){
+                s<<"\t  "<<node.name<<"\t"<<node.weight<<" km";
+            }
+            s<<endl;
+        }
+
         return s;
     }
 
    
-};
 
-#endif /* SOURCE_GRAPH_H_ */
+
+};

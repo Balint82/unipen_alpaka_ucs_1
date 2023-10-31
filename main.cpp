@@ -1,25 +1,30 @@
-#include "class/Graph.h"
 #include "class/Reader.h"
-#include "class/AdjMatrix.h"
+#include "class/Graph.h"
+#include "class/Matrix.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int main(){
-    Graph graphFirst;
-    Reader reader(graphFirst);
-    AdjMatrix matrix(reader);
-    matrix.makeMatrix(graphFirst);
-    //graphFirst.addEdge("Budapest", "Debrecen", 230);
-
-    cout<<graphFirst<<endl;
-    cout<<"Reader.getEdgeCounter: "<<reader.getEdgeCounter()<<endl;
-    cout<<endl;
-    cout<<"Adj matrix: "<<endl;
-    cout<<matrix<<endl;
+int main() {
+    Graph build;
+    Reader reader(build);
    
+    cout<<build<<endl;
+    cout<<build.addNodeForNodeCounterAndCalc()<<endl;
+    Matrix matrix(build);
+
+    //PathList mainPathList(build);
+   
+    //cout<<"MainPathList: "<<endl;
+   // cout<<mainPathList<<endl;
+   
+   build.printNodeCounter(); 
+   matrix.makeMatrix(build);
+   cout<<endl;
+     
+
+
     return 0;
 }
-
-

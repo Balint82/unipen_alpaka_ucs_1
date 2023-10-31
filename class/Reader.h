@@ -6,8 +6,9 @@
 #include <list>
 #include <set>
 
-
 #include "Graph.h"
+
+#pragma once
 
 using namespace std;
 
@@ -20,11 +21,10 @@ class Reader {
     set<string> destFormer;
     set<string> former;
 public:
-    Reader(Graph& _graph, int _edgeCounter = 0) : graph(_graph){
+    Reader(Graph& _graph) : graph(_graph){
         fin.open("./data/cities.txt");
         string starterVertex, destVertex;
         double dist;
-        edgeCounter = _edgeCounter;
 
         if(fin.is_open()==false){
             cout<<"File opening is unsuccessful"<<endl;
@@ -33,35 +33,9 @@ public:
 
         while(!fin.eof()){
             fin>>starterVertex>>destVertex>>dist;
-            graph.addEdge(starterVertex, destVertex, dist);
-
-            this->startFormer.insert(starterVertex);
-            this->destFormer.insert(destVertex);
-            this->former.insert(starterVertex);
-            this->former.insert(destVertex);
+            graph.addNode(starterVertex, destVertex, dist);
         }    
         fin.close();
-
-        for(auto it = former.begin(); it != former.end(); it++){
-            edgeCounter++;
-        }
-    }
-
-
-    int getEdgeCounter(){
-        return edgeCounter;
-    }
-
-    set<string> getStartFormer(){
-        return startFormer;
-    }
-
-    set<string> getDestFormer(){
-        return destFormer;
-    }
-
-    set<string> getFormer(){
-        return former;
     }
 };
 
