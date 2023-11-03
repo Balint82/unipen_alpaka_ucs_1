@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 
+#pragma once
 using namespace std;
 
 
@@ -37,7 +38,7 @@ public:
     Matrix(const Graph& _graph) : incomingNodes(_graph){
             n = incomingNodes.addNodeForNodeCounterAndCalc();
             adjacencyMatrix = new double*[n];
-            cout<<n;
+        
             for(int i = 0; i < n; i++){
                 adjacencyMatrix[i] = new double[n];
                 for(int j = 0; j < n; j++){ 
@@ -47,9 +48,12 @@ public:
         }
     }
 
-    ~Matrix() {
-        for (int k = 0; k < n; k++)
-                delete[] adjacencyMatrix[k];
+    ~Matrix(){} 
+    
+    void dozerMatrix(){
+        for (int k = 0; k < n; k++){
+            delete[] adjacencyMatrix[k];
+        }
         delete[] adjacencyMatrix;
     }
                     
@@ -84,16 +88,7 @@ public:
             }
             i++;
         }
-
        cout<<endl<<endl;
-
-
-
-
-
-
-
-
 
         //kiiratások
         cout<<"MatrixClassNodeMap: "<<endl;

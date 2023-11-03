@@ -1,6 +1,5 @@
 #include "class/Reader.h"
-#include "class/Graph.h"
-#include "class/Matrix.h"
+#include "class/UCS.h"
 
 #include <iostream>
 #include <string>
@@ -10,10 +9,10 @@ using namespace std;
 int main() {
     Graph build;
     Reader reader(build);
-   
-    cout<<build<<endl;
-    cout<<build.addNodeForNodeCounterAndCalc()<<endl;
     Matrix matrix(build);
+    //cout<<build<<endl;
+    cout<<build.addNodeForNodeCounterAndCalc()<<endl;
+   
 
     //PathList mainPathList(build);
    
@@ -22,8 +21,10 @@ int main() {
    
    build.printNodeCounter(); 
    matrix.makeMatrix(build);
-   cout<<endl;
-     
+   //cout<<endl;
+   
+   UCS ucsSpecimen(build, matrix);
+   ucsSpecimen.makeWay();
 
 
     return 0;

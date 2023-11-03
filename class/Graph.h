@@ -33,11 +33,15 @@ public:
     Graph(){};
     ~Graph(){};
 
+    map<Node, set<Node>> getAllNodeMap(){
+        return allNodeMap;
+    }
 
     set<Node> getNodeCounter(){
         return nodeCounter;
     }
 
+    
     void printNodeCounter(){
         for(const Node& item : nodeCounter){
             cout<<item.name<<" - ";
@@ -77,9 +81,7 @@ public:
         return result;
     }
 
-    map<Node, set<Node>> getAllNodeMap(){
-        return allNodeMap;
-    }
+    
 
     
     friend ostream& operator<<(ostream& s, const Graph& graph){
