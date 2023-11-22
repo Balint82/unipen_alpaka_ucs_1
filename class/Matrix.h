@@ -1,3 +1,6 @@
+#ifndef MATRIX_H
+#define MATRIX_H
+
 #include "Graph.h"
 #include "Reader.h"
 
@@ -79,7 +82,6 @@ public:
                          auto it = find(matrixClassNodeCounter.begin(), matrixClassNodeCounter.end(), mapValue);
                          if (it != matrixClassNodeCounter.end()) {
                             j= distance(matrixClassNodeCounter.begin(), it);
-                             cout<<"SetItem: "<<setItem.name<<" i: "<<i<<" mapValue: "<<mapValue.name<<" j: "<<j<<", mapValueWeight: "<<mapValue.weight<<endl;
                              adjacencyMatrix[i][j] = mapValue.weight;
                          }
                     }
@@ -87,32 +89,6 @@ public:
             
             }
             i++;
-        }
-       cout<<endl<<endl;
-
-        //kiiratások
-        cout<<"MatrixClassNodeMap: "<<endl;
-        for(const auto& pair : matrixClassNodeMap){
-            cout<<pair.first.name<<" : ";
-            for(const Node& node : pair.second){
-                cout<<node.name<<", ";
-            }
-            cout<<endl;
-        }
-        cout<<endl<<endl;
-    
-        for(const Node& setItem : matrixClassNodeCounter){
-            cout<<setItem.name<<" - ";
-        }
-        cout<<endl<<endl;
-
-
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                cout<<adjacencyMatrix[i][j]<<"\t";
-            }
-            cout<<endl;
-            cout<<endl;
         }
     }
 
@@ -133,3 +109,6 @@ public:
         return s;
     }
 };
+
+
+#endif // MATRIX_H

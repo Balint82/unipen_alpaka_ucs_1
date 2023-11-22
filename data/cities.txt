@@ -1,15 +1,16 @@
-Nagykanizsa Miklósfa 8.7
-Nagykanizsa Pogányszentpéter 14.6
-Nagykanizsa Zalakomár 17.9
-Zalakomár Balatonszentgyörgy 24.6
-Nagykanizsa Letenye 22.3
-Nagykanizsa Zalaegerszeg 51.7
-Zalaegerszeg Vasvár 25.2
-Nagykanizsa Inke 27.8
-Inke Böhönye 17.6
-Böhönye Nagybajom 9.6
-Nagybajom Kiskorpád 10.0
-Kiskorpád Kaposfő 4.9
-Kaposfő Kaposmérő 3.9
-Kaposmérő Kaposújlak 3.1
-Kaposújlak Kaposvár 7.1
+Nagykanizsa Miklósfa 8.7 1
+Nagykanizsa Pogányszentpéter 14.6 0
+Nagykanizsa Zalakomár 17.9 0
+Zalakomár Balatonszentgyörgy 24.6 1
+Nagykanizsa Letenye 22.3 1
+Nagykanizsa Zalaegerszeg 51.7 1
+Zalaegerszeg Vasvár 25.2 1
+Nagykanizsa Inke 27.8 0
+Inke Böhönye 17.6 0
+Böhönye Nagybajom 9.6 0 
+Nagybajom Kiskorpád 10.0 0
+Kiskorpád Kaposfő 4.9 0
+Kaposfő Kaposmérő 3.9 0 
+Kaposmérő Kaposújlak 3.1 0
+Kaposújlak Kaposvár 7.1 1
+Inke Nagykanizsa 27.8 1

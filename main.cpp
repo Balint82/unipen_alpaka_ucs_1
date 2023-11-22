@@ -1,30 +1,29 @@
-#include "class/Reader.h"
-#include "class/UCS.h"
+#include "class/TimeCalc.h"
 
 #include <iostream>
 #include <string>
 
+
 using namespace std;
+
+
 
 int main() {
     Graph build;
     Reader reader(build);
-    Matrix matrix(build);
-    //cout<<build<<endl;
-    cout<<build.addNodeForNodeCounterAndCalc()<<endl;
-   
+    Matrix matrix(build); 
 
-    //PathList mainPathList(build);
-   
-    //cout<<"MainPathList: "<<endl;
-   // cout<<mainPathList<<endl;
-   
-   build.printNodeCounter(); 
-   matrix.makeMatrix(build);
-   //cout<<endl;
-   
-   UCS ucsSpecimen(build, matrix);
-   ucsSpecimen.makeWay();
+    build.addNodeForNodeCounterAndCalc(); 
+    matrix.makeMatrix(build);
+
+    UCS ucsSpecimen(build, matrix);
+    Planner wayMap(ucsSpecimen, reader);
+    unordered_map<string, list<double>> mainMap = wayMap.makePlan();
+    wayMap.setSettlementVectors(mainMap);
+    wayMap.printVectors();
+
+    TimeCalc timeCalculator(wayMap);
+    timeCalculator.measureTime();
 
 
     return 0;

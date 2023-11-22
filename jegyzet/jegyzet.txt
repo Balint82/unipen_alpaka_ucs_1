@@ -1,0 +1,6 @@
+1. Kiválasztás, hogy hazatérős utat szeretnének-e vagy nem.
+2. Ha igen, akkor számolja bele a 12 órás munkaidőbe a hazaút idejét
+3. Ha nem akkor a napi utolsó város helyéhez legközelebbi olyan várost keresse meg (unordered map a vektorokból)
+amelyikben van szállás
+
+4. Megoldani, hogy ne 15ésével vegye az alpakákat, hanem időarányosan a megmaradt alpakákat.

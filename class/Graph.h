@@ -1,3 +1,6 @@
+#ifndef GRAPH_H
+#define GRAPH_H
+
 #include <iostream>
 #include <list>
 #include <set>
@@ -11,6 +14,7 @@ using namespace std;
 struct Node{
     string name;
     double weight;
+    int hotel;
 
     bool operator==(const Node& other) const {
         return name == other.name;
@@ -42,26 +46,17 @@ public:
     }
 
     
-    void printNodeCounter(){
-        for(const Node& item : nodeCounter){
-            cout<<item.name<<" - ";
-        }
-        cout<<endl<<endl;
 
-        for(const Node& item : nodeCounter){
-            cout<<item.name<<endl;
-        }
-        cout<<endl<<endl;   
-    }
-
-    void addNode(string sourceCity, string targetCity, double distance){
+    void addNode(string sourceCity, string targetCity, double distance, int incomingHotel){
         Node sourceCityNode;
         Node newCityNode;
+    
         sourceCityNode.name = sourceCity;
         sourceCityNode.weight = 0.0;
         newCityNode.name = targetCity;
         newCityNode.weight = distance;
-
+        newCityNode.hotel = incomingHotel;
+        
         allNodeMap[sourceCityNode].insert(newCityNode);
     }
 
@@ -84,6 +79,8 @@ public:
     
 
     
+
+    
     friend ostream& operator<<(ostream& s, const Graph& graph){
         for(const auto& pair : graph.allNodeMap){
             s<<pair.first.name<<" -> ";
@@ -100,3 +97,6 @@ public:
 
 
 };
+
+
+#endif // GRAPH_H
