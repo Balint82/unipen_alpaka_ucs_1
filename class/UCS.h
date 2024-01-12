@@ -24,8 +24,6 @@ public:
         Node inputStartNode, inputDestNode, startNode, destNode, min, mint;
         int row = 0, col;
         list<Node> allNodeList, momentNodeList;
-        vector<Node> allVector;
-        vector<double> allWeight;
         double** mapMatrix = wayMatrix.getAdjMatrix();
         int mapMatrixSize = wayGraph.addNodeForNodeCounterAndCalc();
         double itemWeight;
